@@ -69,10 +69,10 @@ class PaypalIPNListener
      */
     public $timeout = 30;
 
-    private $post_data = array();
-    private $post_uri = '';
-    private $response_status = '';
-    private $response = '';
+    protected $post_data = array();
+    protected $post_uri = '';
+    protected $response_status = '';
+    protected $response = '';
 
     const PAYPAL_HOST = 'www.paypal.com';
     const SANDBOX_HOST = 'www.sandbox.paypal.com';
@@ -175,7 +175,7 @@ class PaypalIPNListener
         fclose($fp);
     }
 
-    private function getPaypalHost()
+    protected function getPaypalHost()
     {
         if ($this->use_sandbox) return self::SANDBOX_HOST;
         else return self::PAYPAL_HOST;
